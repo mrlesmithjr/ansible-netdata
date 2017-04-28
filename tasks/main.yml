@@ -1,0 +1,21 @@
+---
+# tasks file for ansible-netdata
+
+- include: debian.yml
+  when: ansible_os_family == "Debian"
+
+- include: install.yml
+
+- include: config.yml
+  when: netdata_config
+
+- include: update.yml
+  when: netdata_update
+
+- include: auto_updates.yml
+  when: netdata_auto_updates['enabled']
+
+- include: uninstall.yml
+  when: netdata_uninstall
+  tags:
+    - netdata_uninstall
