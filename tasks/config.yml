@@ -30,7 +30,6 @@
     group: "root"
     mode: "u=rwx,g=rx,o=rx"
   notify:
-    - "reload systemd netdata"
     - "restart netdata"
   become: true
   when: ansible_service_mgr == "upstart"
