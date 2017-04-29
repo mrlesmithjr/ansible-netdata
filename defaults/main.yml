@@ -73,6 +73,29 @@ netdata_memory_mode: 'save'
 # The default port to listen for web clients.
 netdata_default_port: '19999'
 
+# Defines pre-requisites for RedHat systems
+netdata_redhat_pre_reqs:
+  - 'autoconf'
+  - 'automake'
+  - 'curl'
+  - 'gcc'
+  - 'git'
+  - 'iproute'
+  - 'libmnl-devel'
+  - 'libuuid-devel'
+  - 'lm_sensors'
+  - 'make'
+  - 'MySQL-python'
+  - 'nc'
+  - 'pkgconfig'
+  - 'python'
+  - 'python-psycopg2'
+  - 'PyYAML'
+  - 'util-linux'
+  - 'uuid'
+  - 'uuid-devel'
+  - 'zlib-devel'
+
 # Defines if Netdata host should be enabled as a registry
 # https://github.com/firehol/netdata/wiki/mynetdata-menu-item
 netdata_registry_enabled: false

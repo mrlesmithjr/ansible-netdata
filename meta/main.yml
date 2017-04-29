@@ -33,6 +33,10 @@ galaxy_info:
   # platforms is a list of platforms, and each platform has a name and a list of versions.
   #
   platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
     - name: Debian
       versions:
         - jessie
