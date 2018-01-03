@@ -9,6 +9,17 @@
   notify: "restart netdata"
   become: true
 
+- name: config | Configuring Netdata streaming
+  template:
+    src: "stream.conf.j2"
+    dest: "{{ netdata_stream_config_file }}"
+    owner: "{{ netdata_user_info['user'] }}"
+    group: "root"
+    mode: "u=rx,g=rx,o=r"
+  notify: "restart netdata"
+  become: true
+  when: netdata_stream_enabled
+
 - name: config | Configuring Netdata Service (systemd)
   template:
     src: "etc/systemd/system/netdata.service.j2"

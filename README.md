@@ -123,6 +123,19 @@ netdata_registry_to_announce: 'https://registry.my-netdata.io'
 # Defines directory to store install source from Git repo
 netdata_source_dir: '/usr/local/src/netdata'
 
+# Defines if Netdata streaming should be configured
+# https://github.com/firehol/netdata/wiki/Monitoring-ephemeral-nodes
+netdata_stream_enabled: false
+
+# Defines location of Netdata stream configuration file
+netdata_stream_config_file: '/etc/netdata/stream.conf'
+
+# Defines Netdata API Key (must be generated with command uuidgen)
+netdata_stream_api_key: '11111111-2222-3333-4444-555555555555'
+
+# Defines Netdata master node
+netdata_stream_master_node: ''
+
 # Defines if Netdata should be uninstalled
 # Caution: This does not prompt for uninstall as the original script
 # was intended.
@@ -164,6 +177,8 @@ Example Playbook
     netdata_registry_enabled: true
     netdata_registry_to_announce: 'http://192.168.250.10:{{ netdata_default_port }}'
     pri_domain_name: 'test.vagrant.local'
+    netdata_stream_enabled: true
+    netdata_stream_api_key: '11111111-2345-2345-2345-555555555555'
   roles:
     - role: ansible-nodejs
     - role: ansible-fail2ban
@@ -176,6 +191,9 @@ Example Playbook
     netdata_registry_enabled: false
     netdata_registry_to_announce: 'http://192.168.250.10:{{ netdata_default_port }}'
     pri_domain_name: 'test.vagrant.local'
+    netdata_stream_enabled: true
+    netdata_stream_api_key: '11111111-2345-2345-2345-555555555555'
+    netdata_stream_master_node: '192.168.250.10'
   roles:
     - role: ansible-nodejs
     - role: ansible-fail2ban
