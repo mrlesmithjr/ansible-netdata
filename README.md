@@ -13,7 +13,7 @@ Install required [Ansible] roles from `requirements.yml`
 Role Variables
 --------------
 
-```
+```yaml
 ---
 # defaults file for ansible-netdata
 
@@ -135,6 +135,8 @@ netdata_uninstaller: './netdata-uninstaller.sh'
 # Defines if Netdata should be updated
 # Not the same as auto_updates
 netdata_update: false
+# Force the update. Sometimes the update script skips installing new plugins.
+netdata_update_force: false
 
 # The frequency in seconds, for data collection
 netdata_update_every: '1'
@@ -157,7 +159,7 @@ Referenace [Requirements](#Requirements) section
 Example Playbook
 ----------------
 
-```
+```yaml
 ---
 - hosts: netdata_registry
   vars:
