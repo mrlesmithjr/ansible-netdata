@@ -9,6 +9,18 @@
   notify: "restart netdata"
   become: true
 
+- name: config | Configuring Netdata Alarm Notifications
+  blockinfile:
+    marker: "# {mark} ANSIBLE MANAGED BLOCK"
+    path: "{{ netdata_alarm_config_file }}"
+    content: |
+      {% for key in netdata_alarm_notify_configs %}
+      {{ key }}="{{ netdata_alarm_notify_configs[key] }}"
+      {% endfor %}
+  notify: "restart netdata"
+  become: true
+  when: netdata_alarm_configure
+
 - name: config | Configuring Netdata streaming
   template:
     src: "stream.conf.j2"
