@@ -80,8 +80,9 @@ netdata_alarm_config_file: /etc/netdata/health_alarm_notify.conf
 # Define configuration for health_alarm_notify.conf.
 # Example:
 # netdata_health_alarm_notify_configs:
-#   https_proxy: http://localhost:3128
-#   SLACK_WEBHOOK_URL: https://hooks.slack.com/...
+#   - { key: https_proxy, value: http://localhost:3128 }
+#   - { key: SLACK_WEBHOOK_URL, value: https://hooks.slack.com/ }
+#   ...
 netdata_alarm_notify_configs: {}
 
 # Defines path to alarm-notify.sh

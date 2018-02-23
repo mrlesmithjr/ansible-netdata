@@ -11,12 +11,11 @@
 
 - name: config | Configuring Netdata Alarm Notifications
   blockinfile:
-    marker: "# {mark} ANSIBLE MANAGED BLOCK"
     path: "{{ netdata_alarm_config_file }}"
-    content: |
-      {% for key in netdata_alarm_notify_configs %}
-      {{ key }}="{{ netdata_alarm_notify_configs[key] }}"
-      {% endfor %}
+    block: |
+      {{ item.key }}="{{item.value}}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{item.key}}"
+  with_items: "{{ netdata_alarm_notify_configs }}"
   notify: "restart netdata"
   become: true
   when: netdata_alarm_configure
