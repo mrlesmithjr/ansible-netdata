@@ -12,7 +12,6 @@
     name: "netdata"
     state: "restarted"
     enabled: true
-    sleep: 10
   become: true
 
 - name: start netdata
