@@ -161,3 +161,38 @@ netdata_updater: ./netdata-updater.sh
 netdata_user_info:
   group: netdata
   user: netdata
+
+# Defines if Netdata should store data in a backend
+netdata_configure_archive: false
+
+# Defines Netdata backend for long term datastorage
+# https://github.com/firehol/netdata/wiki/netdata-backends
+# Defines if the Netdata backend is enabled
+netdata_archive_enabled: 'yes'
+
+# Defines the backend type as one of
+# graphite | opentsdb | json
+netdata_archive_type: 'opentsdb'
+
+# Defines the host(s) netdata should send data to
+netdata_archive_destination: "{{ vip }}:5252"
+
+# Defines how to send the archive data as one of
+# as collected, average, sum
+netdata_archive_data_source: 'average'
+
+# Defines a prefix for the archive data
+netdata_archive_prefix: 'netdata'
+
+# Defines how often to send archive data in seconds
+netdata_archive_update: 1
+
+# Defines the number of update intervals
+# after which dataloss occurs
+netdata_archive_buffer_on_failures: 30
+
+# Defines when to timeout sending to a backend in milliseconds
+netdata_archive_timeout: 20000
+
+# Defines if Netdata sends metric names or UUIDs
+netdata_archive_send_names: true
