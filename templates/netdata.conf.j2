@@ -110,7 +110,7 @@
 {% else %}
 	enabled = {{ netdata_archive_enabled }}
 	type = {{ netdata_archive_type }}
-	destination = {{ netdata_archive_destination }}
+	destination = {{ netdata_archive_destination|join(' ') }}
 	data source = {{ netdata_archive_data_source }}
 	prefix = {{ netdata_archive_prefix }}
 	update every = {{ netdata_archive_update }}

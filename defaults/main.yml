@@ -174,8 +174,10 @@ netdata_archive_enabled: 'yes'
 # graphite | opentsdb | json
 netdata_archive_type: 'opentsdb'
 
-# Defines the host(s) netdata should send data to
-netdata_archive_destination: "{{ vip }}:5252"
+# Defines the host(s) and ports netdata should send data to
+netdata_archive_destination:
+  - localhost
+  # - "{{ vip }}:5252"
 
 # Defines how to send the archive data as one of
 # as collected, average, sum
