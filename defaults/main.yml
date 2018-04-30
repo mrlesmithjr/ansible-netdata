@@ -33,7 +33,6 @@ netdata_debian_pre_reqs:
   - curl
   - gcc
   - git
-  - iproute
   - libmnl-dev
   - libmnl0
   - libuuid1
