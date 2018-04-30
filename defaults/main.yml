@@ -29,6 +29,7 @@ netdata_debian_pre_reqs:
   - autogen
   - automake
   - build-essential
+  - cron
   - curl
   - gcc
   - git
@@ -93,6 +94,7 @@ netdata_default_port: 19999
 netdata_redhat_pre_reqs:
   - autoconf
   - automake
+  - cronie
   - curl
   - gcc
   - git
