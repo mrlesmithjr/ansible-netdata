@@ -1,8 +1,8 @@
 ---
 - name: config | Configuring Netdata
   template:
-    src: "{{ netdata_config_file }}"
-    dest: "{{ netdata_config_file_template }}"
+    src: "{{ netdata_config_file_template }}"
+    dest: "{{ netdata_config_file }}"
     owner: "{{ netdata_user_info['user'] }}"
     group: "root"
     mode: "u=rx,g=rx,o=r"
