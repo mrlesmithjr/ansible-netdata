@@ -37,6 +37,7 @@ netdata_config: true
 
 # Defines location of Netdata configuration file
 netdata_config_file: '/etc/netdata/netdata.conf'
+netdata_config_file: 'netdata.conf.j2'
 
 # Defines pre-requisites for Debian systems
 netdata_debian_pre_reqs:
@@ -146,6 +147,7 @@ netdata_stream_enabled: false
 
 # Defines location of Netdata stream configuration file
 netdata_stream_config_file: '/etc/netdata/stream.conf'
+netdata_stream_config_file_template: 'stream.conf.j2'
 
 # Defines Netdata API Key (must be generated with command uuidgen)
 netdata_stream_api_key: '11111111-2222-3333-4444-555555555555'

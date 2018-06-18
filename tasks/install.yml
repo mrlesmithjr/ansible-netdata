@@ -4,6 +4,8 @@
     repo: "{{ netdata_git_repo }}"
     dest: "{{ netdata_source_dir }}"
     depth: 1
+    accept_hostkey: "{{ netdata_git_accept_hostkey|default(omit) }}"
+    ssh_opts: "{{ netdata_git_ssh_opts|default(omit) }}"
   become: true
 
 - name: install | Installing Netdata ({{ netdata_installer }}) From {{ netdata_source_dir }}

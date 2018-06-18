@@ -21,6 +21,7 @@ netdata_config: true
 
 # Defines location of Netdata configuration file
 netdata_config_file: '/etc/netdata/netdata.conf'
+netdata_config_file_template: 'netdata.conf.j2'
 
 # Defines pre-requisites for Debian systems
 netdata_debian_pre_reqs:
@@ -51,6 +52,12 @@ netdata_debian_pre_reqs:
 
 # Defines the Git repo to pull down for installs
 netdata_git_repo: 'https://github.com/firehol/netdata.git'
+
+# If yes, ensure that "-o StrictHostKeyChecking=no" is present as an ssh options.
+netdata_git_accept_hostkey: No
+
+# Creates a wrapper script and exports the path as GIT_SSH which git then automatically uses to override ssh arguments. An example value could be "-o StrictHostKeyChecking=no"
+netdata_git_ssh_opts: None
 
 # Defines whether Netdata health is enabled
 netdata_health_enabled: true
@@ -129,6 +136,7 @@ netdata_stream_enabled: false
 
 # Defines location of Netdata stream configuration file
 netdata_stream_config_file: '/etc/netdata/stream.conf'
+netdata_stream_config_file_template: 'stream.conf.j2'
 
 # Defines Netdata API Key (must be generated with command uuidgen)
 netdata_stream_api_key: '11111111-2222-3333-4444-555555555555'

@@ -1,8 +1,8 @@
 ---
 - name: config | Configuring Netdata
   template:
-    src: "netdata.conf.j2"
-    dest: "{{ netdata_config_file }}"
+    src: "{{ netdata_config_file }}"
+    dest: "{{ netdata_config_file_template }}"
     owner: "{{ netdata_user_info['user'] }}"
     group: "root"
     mode: "u=rx,g=rx,o=r"
@@ -22,7 +22,7 @@
 
 - name: config | Configuring Netdata streaming
   template:
-    src: "stream.conf.j2"
+    src: "{{ netdata_stream_config_file_template }}"
     dest: "{{ netdata_stream_config_file }}"
     owner: "{{ netdata_user_info['user'] }}"
     group: "root"
