@@ -22,8 +22,8 @@
 	debug log = /var/log/netdata/debug.log
 	error log = /var/log/netdata/error.log
 	access log = /var/log/netdata/access.log
-	# errors flood protection period = 1200
-	# errors to trigger flood protection = 200
+	errors flood protection period = {{ netdata_errors_flood_protection_period }}
+	errors to trigger flood protection = {{ netdata_errors_to_trigger_flood_protection }}
 	# pthread stack size = 8388608
 	# run as user = netdata
 	# OOM score = 1000

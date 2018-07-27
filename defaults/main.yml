@@ -199,3 +199,9 @@ netdata_archive_timeout: 20000
 
 # Defines if Netdata sends metric names or UUIDs
 netdata_archive_send_names: true
+
+# Defines the flood protection period
+netdata_errors_flood_protection_period: 1200
+
+# Defines when to trigger flood proctection
+netdata_errors_to_trigger_flood_protection: 200
