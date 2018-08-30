@@ -134,7 +134,7 @@ netdata_stream_config_file: /etc/netdata/stream.conf
 # Defines Netdata API Key (must be generated with command uuidgen)
 netdata_stream_api_key: 11111111-2222-3333-4444-555555555555
 
-# Defines Netdata master node
+# Defines Netdata master node and port (e.g. 127.0.0.1:19999)
 netdata_stream_master_node: ""
 
 # Defines if Netdata should be uninstalled
