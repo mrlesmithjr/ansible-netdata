@@ -1,73 +1,41 @@
-Role Name
-=========
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-An [Ansible] role to install/configure [Netdata]
+- [Role Name](#role-name)
+  - [Build Status](#build-status)
+  - [Requirements](#requirements)
+  - [Role Variables](#role-variables)
+  - [Dependencies](#dependencies)
+  - [Example Playbook](#example-playbook)
+  - [License](#license)
+  - [Author Information](#author-information)
 
-Requirements
-------------
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-Install required [Ansible] roles from `requirements.yml`
+# Role Name
 
-`ansible-galaxy install -r requirements.yml`
+An [Ansible](https://www.ansible.com) role to install/configure [Netdata](https://my-netdata.io/)
 
-Role Variables
---------------
+## Build Status
 
-```yaml
----
-# defaults file for ansible-netdata
+[![Build Status](https://travis-ci.org/mrlesmithjr/ansible-netdata.svg?branch=master)](https://travis-ci.org/mrlesmithjr/ansible-netdata)
 
-# Defines info about enabling/scheduling auto updates for Netdata version
-# https://github.com/firehol/netdata/wiki/Installation#auto-update
-netdata_auto_updates:
-  enabled: true
-  day: '*'
-  hour: '6'
-  minute: '0'
-  user: "root"
-  weekday: '*'
+## Requirements
 
-# The IP address and port to listen to. This is a space separated list of
-# IPv4 or IPv6 address and ports. The default will bind to all IP addresses
-netdata_bind_to:
-  - '*'
+Install required [Ansible](https://www.ansible.com) roles from `requirements.yml`
 
-# Defines if Netdata should be configured
-netdata_config: true
+```bash
+ansible-galaxy install -r requirements.yml
+```
 
 # Defines location of Netdata configuration file
 netdata_config_file: '/etc/netdata/netdata.conf'
 netdata_config_file: 'netdata.conf.j2'
 
-# Defines pre-requisites for Debian systems
-netdata_debian_pre_reqs:
-  - 'autoconf-archive'
-  - 'autoconf'
-  - 'autogen'
-  - 'automake'
-  - 'build-essential'
-  - 'curl'
-  - 'gcc'
-  - 'git'
-  - 'iproute'
-  - 'libmnl-dev'
-  - 'libmnl0'
-  - 'libuuid1'
-  - 'lm-sensors'
-  - 'make'
-  - 'netcat'
-  - 'pkg-config'
-  - 'python-mysqldb'
-  - 'python-psycopg2'
-  - 'python-pymongo'
-  - 'python-yaml'
-  - 'util-linux'
-  - 'uuid'
-  - 'uuid-dev'
-  - 'zlib1g-dev'
+[defaults/main.yml](defaults/main.yml)
 
-# Defines the Git repo to pull down for installs
-netdata_git_repo: 'https://github.com/firehol/netdata.git'
+## Dependencies
 
 # Defines whether Netdata health is enabled
 netdata_health_enabled: true
@@ -187,57 +155,18 @@ Dependencies
 
 Referenace [Requirements](#Requirements) section
 
+## Example Playbook
 
-Example Playbook
-----------------
+[playbook.yml](playbook.yml)
 
-```yaml
----
-- hosts: netdata_registry
-  vars:
-    netdata_registry_enabled: true
-    netdata_registry_to_announce: 'http://192.168.250.10:{{ netdata_default_port }}'
-    pri_domain_name: 'test.vagrant.local'
-    netdata_stream_enabled: true
-    netdata_stream_api_key: '11111111-2345-2345-2345-555555555555'
-  roles:
-    - role: ansible-nodejs
-    - role: ansible-fail2ban
-    - role: ansible-nginx
-    - role: ansible-netdata
-  tasks:
+## License
 
-- hosts: netdata:!netdata_registry
-  vars:
-    netdata_registry_enabled: false
-    netdata_registry_to_announce: 'http://192.168.250.10:{{ netdata_default_port }}'
-    pri_domain_name: 'test.vagrant.local'
-    netdata_stream_enabled: true
-    netdata_stream_api_key: '11111111-2345-2345-2345-555555555555'
-    netdata_stream_master_node: '192.168.250.10'
-  roles:
-    - role: ansible-nodejs
-    - role: ansible-fail2ban
-    - role: ansible-nginx
-    - role: ansible-netdata
-  tasks:
-```
+MIT
 
-License
--------
-
-BSD
-
-Author Information
-------------------
-
+## Author Information
 
 Larry Smith Jr.
-- [@mrlesmithjr]
-- http://everythingshouldbevirtual.com
-- mrlesmithjr [at] gmail.com
 
-[@mrlesmithjr]: <https://www.twitter.com/mrlesmithjr>
-
-[Ansible]: <https://www.ansible.com>
-[Netdata]: <https://my-netdata.io/>
+-   [EverythingShouldBeVirtual](http://everythingshouldbevirtual.com)
+-   [@mrlesmithjr](https://www.twitter.com/mrlesmithjr)
+-   <mailto:mrlesmithjr@gmail.com>
