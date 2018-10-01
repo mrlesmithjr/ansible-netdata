@@ -20,8 +20,8 @@ netdata_bind_to:
 netdata_config: true
 
 # Defines location of Netdata configuration file
-netdata_config_file: '/etc/netdata/netdata.conf'
-netdata_config_file_template: 'netdata.conf.j2'
+netdata_config_file: /etc/netdata/netdata.conf
+netdata_config_file_template: netdata.conf.j2
 
 # Defines pre-requisites for Debian systems
 netdata_debian_pre_reqs:
@@ -136,8 +136,8 @@ netdata_source_dir: /usr/local/src/netdata
 netdata_stream_enabled: false
 
 # Defines location of Netdata stream configuration file
-netdata_stream_config_file: '/etc/netdata/stream.conf'
-netdata_stream_config_file_template: 'stream.conf.j2'
+netdata_stream_config_file: /etc/netdata/stream.conf
+netdata_stream_config_file_template: stream.conf.j2
 
 # Defines Netdata API Key (must be generated with command uuidgen)
 netdata_stream_api_key: 11111111-2222-3333-4444-555555555555
@@ -177,11 +177,11 @@ netdata_configure_archive: false
 # Defines Netdata backend for long term datastorage
 # https://github.com/firehol/netdata/wiki/netdata-backends
 # Defines if the Netdata backend is enabled
-netdata_archive_enabled: 'yes'
+netdata_archive_enabled: yes
 
 # Defines the backend type as one of
 # graphite | opentsdb | json
-netdata_archive_type: 'opentsdb'
+netdata_archive_type: opentsdb
 
 # Defines the host(s) and ports netdata should send data to
 netdata_archive_destination:
@@ -190,10 +190,10 @@ netdata_archive_destination:
 
 # Defines how to send the archive data as one of
 # as collected, average, sum
-netdata_archive_data_source: 'average'
+netdata_archive_data_source: average
 
 # Defines a prefix for the archive data
-netdata_archive_prefix: 'netdata'
+netdata_archive_prefix: netdata
 
 # Defines how often to send archive data in seconds
 netdata_archive_update: 1
