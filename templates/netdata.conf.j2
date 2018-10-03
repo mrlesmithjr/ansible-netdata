@@ -4,7 +4,7 @@
 [global]
 	# glibc malloc arena max for plugins = 1
 	# glibc malloc arena max for netdata = 1
-	hostname = {{ ansible_hostname }}
+	hostname = {{ netdata_hostname }}
 	history = {{ netdata_history }}
 	update every = {{ netdata_update_every }}
 	config directory = /etc/netdata
