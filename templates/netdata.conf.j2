@@ -91,7 +91,7 @@
 	# registry expire idle persons days = 365
 	# registry domain =
 	registry to announce = {{ netdata_registry_to_announce }}
-	registry hostname = {{ ansible_hostname }}
+	registry hostname = {{ netdata_hostname }}
 	# verify browser cookies support = yes
 	# max URL length = 1024
 	# max URL name length = 50
@@ -103,7 +103,7 @@
 	# type = graphite
 	# destination = localhost
 	# prefix = netdata
-	hostname = {{ ansible_hostname }}
+	hostname = {{ netdata_hostname }}
 	# update every = 10
 	# buffer on failures = 10
 	# timeout ms = 20000
