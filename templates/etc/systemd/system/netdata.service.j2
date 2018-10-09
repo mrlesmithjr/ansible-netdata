@@ -8,7 +8,11 @@ User={{ netdata_user_info['user'] }}
 Group={{ netdata_user_info['group'] }}
 ExecStart=/usr/sbin/netdata -D
 
-# saving a big db on slow disks may need some time
+# Auto restart service on failure
+Restart=always
+RestartSec=3
+
+# Saving a big db on slow disks may need some time
 TimeoutStopSec=60
 
 [Install]
