@@ -50,7 +50,7 @@ netdata_debian_pre_reqs:
   - zlib1g-dev
 
 # Defines the Git repo to pull down for installs
-netdata_git_repo: https://github.com/firehol/netdata.git
+netdata_git_repo: https://github.com/netdata/netdata.git
 
 # Defines whether Netdata health is enabled
 netdata_health_enabled: true
