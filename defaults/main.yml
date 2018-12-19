@@ -88,6 +88,13 @@ netdata_installer: ./netdata-installer.sh
 # will be lost when netdata exits.
 netdata_memory_mode: save
 
+# Defines the mode the web-server will run in
+# static-threaded is a web server with a fix (configured number of threads)
+# single-threaded is a simple web server running with a single thread
+# multi-threaded is a web server that spawns a thread for each client connection
+# none will disable the web-server and the API
+netdata_web_mode: multi-threaded
+
 # The default port to listen for web clients.
 netdata_default_port: 19999
 

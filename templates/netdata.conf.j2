@@ -36,7 +36,7 @@
 [web]
 	# web files owner = netdata
 	# web files group = netdata
-	# mode = multi-threaded
+	mode = {{ netdata_web_mode }}
 	# listen backlog = 4096
 	default port = {{ netdata_default_port }}
 	bind to = {{ netdata_bind_to|join(' ') }}
