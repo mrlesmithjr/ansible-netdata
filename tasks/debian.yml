@@ -12,5 +12,4 @@
     state: present
   become: true
   when: >
-        not ansible_distribution == "Ubuntu" and
-        ansible_distribution_version is version('18.04', '<', strict=True)
+        not ansible_distribution == "Ubuntu" or (ansible_distribution == "Ubuntu" and ansible_distribution_version is version('18.04', '<', strict=True))
