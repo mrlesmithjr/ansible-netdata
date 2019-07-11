@@ -13,7 +13,7 @@
   when: netdata_config
 
 - include: update.yml
-  when: netdata_update
+  when: netdata_update or netdata_update_force
 
 - include: auto_updates.yml
   when: netdata_auto_updates['enabled']

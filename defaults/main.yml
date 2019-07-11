@@ -1,8 +1,8 @@
 ---
 # defaults file for ansible-netdata
 
-# Defines info about enabling/scheduling auto updates for Netdata version
-# https://github.com/firehol/netdata/wiki/Installation#auto-update
+# Adds installer flag to enable auto updates
+# https://docs.netdata.cloud/packaging/installer/update/#auto-update
 netdata_auto_updates:
   enabled: true
   day: "*"
@@ -10,6 +10,7 @@ netdata_auto_updates:
   minute: 0
   user: root
   weekday: "*"
+  clean_legacy_cron: true
 
 # The IP address and port to listen to. This is a space separated list of
 # IPv4 or IPv6 address and ports. The default will bind to all IP addresses
