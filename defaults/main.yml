@@ -156,11 +156,16 @@ netdata_stream_enabled: false
 # Defines location of Netdata stream configuration file
 netdata_stream_config_file: /etc/netdata/stream.conf
 
-# Defines Netdata API Key (must be generated with command uuidgen)
+# Defines Netdata API Keys (must be generated with command uuidgen)
 netdata_stream_api_key: 11111111-2222-3333-4444-555555555555
+netdata_stream_send_api_key: "{{ netdata_stream_api_key }}"
+netdata_stream_receive_api_key: "{{ netdata_stream_api_key }}"
 
 # Defines Netdata master node and port (e.g. 127.0.0.1:19999)
 netdata_stream_master_node: ""
+
+# Defines weather the netdata node is acting as a proxy
+netdata_stream_proxy: false
 
 # Defines if Netdata should be uninstalled
 # Caution: This does not prompt for uninstall as the original script
