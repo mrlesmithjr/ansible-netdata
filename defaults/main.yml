@@ -69,6 +69,11 @@ netdata_alarm_config_file: /etc/netdata/health_alarm_notify.conf
 #   SLACK_WEBHOOK_URL: https://hooks.slack.com/...
 netdata_alarm_notify_configs: {}
 
+#Define custom_sender function in health_alarm_notify.conf
+#only the body of the function should be in there
+#Exemple: netdata_custom_sender_function: "curl -X POST url"
+# netdata_custom_sender_function: ""
+
 # Defines path to alarm-notify.sh
 netdata_health_alarm_script: /usr/libexec/netdata/plugins.d/alarm-notify.sh
 
