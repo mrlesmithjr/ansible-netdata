@@ -10,5 +10,5 @@
     user: "{{ netdata_auto_updates['user'] }}"
     job: "{{ netdata_source_dir }}/{{ netdata_updater|basename }}"
     cron_file: netdata_auto_updates
-    state: "{{ netdata_auto_updates['clean_legacy_cron']|ternary('absent', 'present') }}"
+    state: "{{ netdata_auto_updates['clean_legacy_cron']|default(false)|ternary('absent', 'present') }}"
   become: true

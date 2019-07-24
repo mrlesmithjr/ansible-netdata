@@ -10,6 +10,10 @@ netdata_auto_updates:
   minute: 0
   user: root
   weekday: "*"
+  # WARNING: when you set this variable to 'true' and are migrating from an old version
+  # of Netdata (< v1.11.0) then the cron will be removed from your system.
+  # You will then need to launch the netdata installer manually to make sure
+  # netdata installs the cron by itself with: `./netdata-installer.sh --auto-update`
   clean_legacy_cron: true
 
 # The IP address and port to listen to. This is a space separated list of
