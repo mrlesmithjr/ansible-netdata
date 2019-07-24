@@ -1,7 +1,7 @@
 # netdata stream configuration
 
-{% if netdata_stream_master_node == '' %}
-[{{ netdata_stream_api_key }}]
+{% if netdata_stream_master_node == '' or netdata_stream_proxy %}
+[{{ netdata_stream_receive_api_key }}]
     # enable/disable this API key
     enabled = yes
     
@@ -23,5 +23,5 @@
     destination = {{ netdata_stream_master_node }}
   
     # the API key to use
-    api key = {{ netdata_stream_api_key }}
+    api key = {{ netdata_stream_send_api_key }}
 {% endif %}
