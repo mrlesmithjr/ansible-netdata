@@ -76,6 +76,12 @@ netdata_alarm_notify_configs: {}
 # Defines path to alarm-notify.sh
 netdata_health_alarm_script: /usr/libexec/netdata/plugins.d/alarm-notify.sh
 
+# Defines how often a critical alarm is repeated
+netdata_default_repeat_critical: never
+
+# Defines how often a warning alarm is repeated
+netdata_default_repeat_warning: never
+
 # The host name displayed in netdata
 netdata_hostname: "{{ ansible_hostname }}"
 # The number of entries the netdata daemon will by default keep in memory

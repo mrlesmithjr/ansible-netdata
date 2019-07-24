@@ -73,6 +73,8 @@
 	# in memory max health log entries = 1000
 	script to execute on alarm = {{ netdata_health_alarm_script }}
 	health configuration directory = /etc/netdata/health.d
+	default repeat warning = {{ netdata_default_repeat_warning }}
+	default repeat critical = {{ netdata_default_repeat_critical }}
 	# run at least every seconds = 10
 	# postpone alarms during hibernation for seconds = 60
 	# rotate log every lines = 2000
