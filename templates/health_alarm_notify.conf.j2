@@ -1,0 +1,9 @@
+{% for key in netdata_alarm_notify_configs %}
+{{ key }}="{{ netdata_alarm_notify_configs[key] }}"
+{% endfor %}
+
+{% if netdata_custom_sender_function is defined %}
+custom_sender() {
+{{ netdata_custom_sender_function }}
+}
+{% endif %}

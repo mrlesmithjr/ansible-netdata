@@ -10,16 +10,11 @@
   become: true
 
 - name: config | Configuring Netdata Alarm Notifications
-  blockinfile:
-    marker: "# {mark} ANSIBLE MANAGED BLOCK"
-    path: "{{ netdata_alarm_config_file }}"
-    create: yes
+  template:
+    dest: "{{ netdata_alarm_config_file }}"
     owner: "{{ netdata_user_info['user'] }}"
     group: root
-    content: |
-      {% for key in netdata_alarm_notify_configs %}
-      {{ key }}="{{ netdata_alarm_notify_configs[key] }}"
-      {% endfor %}
+    src: "health_alarm_notify.conf.j2"
   notify: restart netdata
   become: true
   when: netdata_alarm_configure
