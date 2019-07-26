@@ -1,6 +1,6 @@
 # netdata stream configuration
 
-{% if netdata_stream_master_node == '' or netdata_stream_proxy %}
+{% if (netdata_stream_master_node == '') or netdata_stream_proxy %}
 [{{ netdata_stream_receive_api_key }}]
     # enable/disable this API key
     enabled = yes
@@ -14,7 +14,8 @@
     # alarms checks, only while the slave is connected
     health enabled by default = auto
 
-{% else %}
+{% endif %}
+{% if netdata_stream_master_node != '' %}
 [stream]
     # stream metrics to another netdata
     enabled = yes
