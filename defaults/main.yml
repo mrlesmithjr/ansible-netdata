@@ -73,9 +73,9 @@ netdata_alarm_config_file: /etc/netdata/health_alarm_notify.conf
 #   SLACK_WEBHOOK_URL: https://hooks.slack.com/...
 netdata_alarm_notify_configs: {}
 
-#Define custom_sender function in health_alarm_notify.conf
-#only the body of the function should be in there
-#Exemple: netdata_custom_sender_function: "curl -X POST url"
+# Define custom_sender function in health_alarm_notify.conf
+# only the body of the function should be in there
+# Exemple: netdata_custom_sender_function: "curl -X POST url"
 # netdata_custom_sender_function: ""
 
 # Defines path to alarm-notify.sh
@@ -199,11 +199,11 @@ netdata_configure_archive: false
 # Defines Netdata backend for long term datastorage
 # https://github.com/firehol/netdata/wiki/netdata-backends
 # Defines if the Netdata backend is enabled
-netdata_archive_enabled: 'yes'
+netdata_archive_enabled: "yes"
 
 # Defines the backend type as one of
 # graphite | opentsdb | json
-netdata_archive_type: 'opentsdb'
+netdata_archive_type: "opentsdb"
 
 # Defines the host(s) and ports netdata should send data to
 netdata_archive_destination:
@@ -212,10 +212,10 @@ netdata_archive_destination:
 
 # Defines how to send the archive data as one of
 # as collected, average, sum
-netdata_archive_data_source: 'average'
+netdata_archive_data_source: "average"
 
 # Defines a prefix for the archive data
-netdata_archive_prefix: 'netdata'
+netdata_archive_prefix: "netdata"
 
 # Defines how often to send archive data in seconds
 netdata_archive_update: 1

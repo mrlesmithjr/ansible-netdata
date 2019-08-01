@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: Larry Smith Jr.
   description: An [Ansible] role to install/configure [Netdata]
@@ -17,6 +18,8 @@ galaxy_info:
         - stretch
     - name: Ubuntu
       versions:
+        - bionic
+        - dingo
         - precise
         - trusty
         - xenial

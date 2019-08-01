@@ -5,7 +5,7 @@
     chdir: "{{ netdata_source_dir }}"
   become: true
   notify: restart netdata
-  when: netdata_update_force == False
+  when: not netdata_update_force|bool
 
 - name: update | Force Updating Netdata ({{ netdata_updater }}) From {{ netdata_source_dir }}
   command: "{{ netdata_updater }} -f"
