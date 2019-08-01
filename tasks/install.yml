@@ -1,5 +1,6 @@
 ---
-- set_fact:
+- name: install | Defining Auto Update CLI Option
+  set_fact:
     auto_update_cli_option: "{{ netdata_auto_updates['enabled']|ternary('--auto-update', '') }}"
 
 - name: install | Cloning {{ netdata_git_repo }} to {{ netdata_source_dir }}

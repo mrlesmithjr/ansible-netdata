@@ -1,0 +1,73 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+  options:
+    config-data:
+      ignore: molecule
+platforms:
+  - name: centos6
+    image: centos:6
+  - name: centos7
+    image: centos:7
+    command: /sbin/init
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  # - name: debian8
+  #   image: debian:8
+  - name: debian9
+    image: debian:9
+  - name: debian10
+    image: debian:10
+  # - name: fedora28
+  #   image: fedora:28
+  #   command: /sbin/init
+  #   tmpfs:
+  #     - /run
+  #     - /tmp
+  #   volumes:
+  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  # - name: fedora29
+  #   image: fedora:29
+  #   command: /sbin/init
+  #   tmpfs:
+  #     - /run
+  #     - /tmp
+  #   volumes:
+  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  # - name: fedora30
+  #   image: fedora:30
+  #   command: /sbin/init
+  #   tmpfs:
+  #     - /run
+  #     - /tmp
+  #   volumes:
+  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: ubuntu1404
+    image: ubuntu:14.04
+  # - name: ubuntu1604
+  #   image: ubuntu:16.04
+  - name: ubuntu1804
+    image: ubuntu:18.04
+  - name: ubuntu1904
+    image: ubuntu:19.04
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+    options:
+      x: ["301", "401"]
+  inventory:
+    host_vars:
+      fedora30:
+        ansible_python_interpreter: /usr/bin/python3
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
