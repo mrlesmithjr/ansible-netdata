@@ -1,0 +1,14 @@
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: ansible-netdata
+  post_tasks:
+    - name: Ensuring Netdata is up and running
+      uri:
+        url: "{{ 'http://127.0.0.1:' + netdata_default_port|string }}"
+        status_code: 200
+      register: result
+      until: result.status == 200
+      retries: 60
+      delay: 1
