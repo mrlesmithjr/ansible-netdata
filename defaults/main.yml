@@ -40,7 +40,9 @@ netdata_debian_pre_reqs:
   - git
   - libmnl-dev
   - libmnl0
+  - libssl-dev
   - libuuid1
+  - libuv1-dev
   - lm-sensors
   - make
   - netcat
@@ -125,6 +127,7 @@ netdata_redhat_pre_reqs:
   - iproute
   - libmnl-devel
   - libuuid-devel
+  - libuv-devel
   - lm_sensors
   - make
   - MySQL-python
@@ -137,6 +140,12 @@ netdata_redhat_pre_reqs:
   - uuid
   - uuid-devel
   - zlib-devel
+
+netdata_epel_setup: false
+netdata_epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
+netdata_epel_repo_gpg_key_url: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+netdata_epel_repofile_path: "/etc/yum.repos.d/epel.repo"
+netdata_centos6_install_okay: false
 
 # Defines if Netdata host should be enabled as a registry
 # https://github.com/firehol/netdata/wiki/mynetdata-menu-item

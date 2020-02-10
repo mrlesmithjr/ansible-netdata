@@ -67,6 +67,8 @@ provisioner:
     host_vars:
       fedora30:
         ansible_python_interpreter: /usr/bin/python3
+      centos6:
+        netdata_centos6_install_okay: true
 verifier:
   name: testinfra
   lint:

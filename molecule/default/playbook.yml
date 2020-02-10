@@ -3,6 +3,8 @@
   hosts: all
   roles:
     - role: ansible-netdata
+  vars:
+    netdata_epel_setup: true
   post_tasks:
     - name: Ensuring Netdata is up and running
       uri:

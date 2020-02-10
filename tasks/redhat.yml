@@ -1,4 +1,32 @@
 ---
+- name: redhat | Check if EPEL repo is already configured.
+  stat: path={{ netdata_epel_repofile_path }}
+  register: epel_repofile_result
+  when: netdata_epel_setup
+
+- name: redhat | Install EPEL repo.
+  yum:
+    name: "{{ netdata_epel_repo_url }}"
+    state: present
+  register: result
+  when:
+    - not epel_repofile_result.stat.exists
+    - netdata_epel_setup
+
+- name: redhat | Import EPEL GPG key.
+  rpm_key:
+    key: "{{ netdata_epel_repo_gpg_key_url }}"
+    state: present
+  when:
+    - not epel_repofile_result.stat.exists
+    - netdata_epel_setup
+
+- name: redhat | install okay repo
+  yum:
+    name: http://repo.okay.com.mx/centos/6/x86_64/release/okay-release-1-3.el6.noarch.rpm
+    state: present
+  when: netdata_centos6_install_okay
+
 - name: redhat | Installing Pre-Reqs
   yum:
     name: "{{ netdata_redhat_pre_reqs }}"
