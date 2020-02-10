@@ -22,7 +22,12 @@
       
     # the IP and PORT of the master
     destination = {{ netdata_stream_master_node }}
-  
+
+    # TLS client options
+{%  for ssl_option, ssl_value in netdata_client_ssl_options.items() %}
+    {{ ssl_option }} = {{ ssl_value }}
+{% endfor %}
+
     # the API key to use
     api key = {{ netdata_stream_send_api_key }}
 {% endif %}
