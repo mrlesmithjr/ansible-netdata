@@ -173,8 +173,14 @@ netdata_stream_receive_api_key: "{{ netdata_stream_api_key }}"
 # Defines Netdata master node and port (e.g. 127.0.0.1:19999)
 netdata_stream_master_node: ""
 
-# Defines weather the netdata node is acting as a proxy
+# Defines whether the netdata node is acting as a proxy
 netdata_stream_proxy: false
+
+# Defines client ssl configuration
+# netdata_client_ssl_options:
+#   ssl skip certificate verification: "yes"
+#   CAfile: /etc/ssl/certs/ca-certificates.crt
+netdata_client_ssl_options: {}
 
 # Defines if Netdata should be uninstalled
 # Caution: This does not prompt for uninstall as the original script
