@@ -1,0 +1,8 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    netdata_epel_setup: true
+  roles:
+    - role: ansible-nodejs
+    - role: ansible-netdata

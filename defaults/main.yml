@@ -59,6 +59,9 @@ netdata_debian_pre_reqs:
 # Defines the Git repo to pull down for installs
 netdata_git_repo: https://github.com/netdata/netdata.git
 
+# Defines the version tag to clone for installation
+netdata_git_version_tag: v1.19.0
+
 # Defines whether Netdata health is enabled
 netdata_health_enabled: true
 
