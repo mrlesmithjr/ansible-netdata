@@ -5,79 +5,89 @@ driver:
   name: docker
 lint:
   name: yamllint
-  options:
-    config-data:
-      ignore: molecule
 platforms:
-  - name: centos6
-    image: centos:6
   - name: centos7
-    image: centos:7
-    command: /sbin/init
+    image: jrei/systemd-centos:7
+    privileged: true
+    command: /usr/sbin/init
     tmpfs:
       - /run
       - /tmp
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  # - name: centos8
+  #   image: jrei/systemd-centos:8
+  #   privileged: true
+  #   command: /usr/sbin/init
+  #   tmpfs:
+  #     - /run
+  #     - /tmp
+  #   volumes:
+  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
   # - name: debian8
-  #   image: debian:8
+  #   image: jrei/systemd-debian:8
+  #   privileged: true
+  #   command: /lib/systemd/systemd
+  #   tmpfs:
+  #     - /run
+  #     - /tmp
+  #   volumes:
+  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
   - name: debian9
-    image: debian:9
-  - name: debian10
-    image: debian:10
-  # - name: fedora28
-  #   image: fedora:28
-  #   command: /sbin/init
-  #   tmpfs:
-  #     - /run
-  #     - /tmp
-  #   volumes:
-  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  # - name: fedora29
-  #   image: fedora:29
-  #   command: /sbin/init
-  #   tmpfs:
-  #     - /run
-  #     - /tmp
-  #   volumes:
-  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  # - name: fedora30
-  #   image: fedora:30
-  #   command: /sbin/init
-  #   tmpfs:
-  #     - /run
-  #     - /tmp
-  #   volumes:
-  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  #  - name: ubuntu1404
-  #  image: ubuntu:14.04
-  - name: ubuntu1604
-    image: ubuntu:16.04
+    image: jrei/systemd-debian:9
+    privileged: true
     command: /lib/systemd/systemd
-    capabilities:
-      - SYS_ADMIN
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     tmpfs:
       - /run
       - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: debian10
+    image: jrei/systemd-debian:10
+    privileged: true
+    command: /lib/systemd/systemd
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: fedora
+    image: jrei/systemd-fedora
+    privileged: true
+    command: /usr/sbin/init
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: ubuntu1604
+    image: jrei/systemd-ubuntu:16.04
+    privileged: true
+    command: /lib/systemd/systemd
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
   - name: ubuntu1804
-    image: ubuntu:18.04
-  - name: ubuntu1904
-    image: ubuntu:19.04
+    image: jrei/systemd-ubuntu:18.04
+    privileged: true
+    command: /lib/systemd/systemd
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
   name: ansible
   lint:
     name: ansible-lint
-    options:
-      x: ["301", "401"]
-  inventory:
-    host_vars:
-      fedora30:
-        ansible_python_interpreter: /usr/bin/python3
-      centos6:
-        netdata_centos6_install_okay: true
+  playbooks:
+    converge: ../shared/playbook.yml
 verifier:
   name: testinfra
+  directory: ../shared/tests
   lint:
     name: flake8
+  additional_files_or_dirs:
+    - ../shared/*

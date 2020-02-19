@@ -8,41 +8,27 @@ driver:
 lint:
   name: yamllint
 platforms:
-  # - name: centos6
-  #   box: mrlesmithjr/centos6
-  #   memory: 1024
-  #   cpus: 1
-  # - name: centos7
-  #   box: mrlesmithjr/centos7
-  #   memory: 1024
-  #   cpus: 1
+  - name: centos7
+    box: mrlesmithjr/centos7
+  - name: centos8
+    box: mrlesmithjr/centos8
   - name: debian9
     box: mrlesmithjr/stretch64
-    memory: 1024
-    cpus: 1
   - name: debian10
     box: mrlesmithjr/buster64
-    memory: 1024
-    cpus: 1
-  # - name: ubuntu1604
-  #   box: mrlesmithjr/xenial64
-  #   memory: 1024
-  #   cpus: 1
-  # - name: ubuntu1804
-  #   box: mrlesmithjr/bionic64
-  #   memory: 1024
-  #   cpus: 1
-  # - name: ubuntu1904
-  #   box: mrlesmithjr/dingo64
-  #   memory: 1024
-  #   cpus: 1
+  - name: ubuntu1604
+    box: mrlesmithjr/xenial64
+  - name: ubuntu1804
+    box: mrlesmithjr/bionic64
 provisioner:
   name: ansible
   lint:
     name: ansible-lint
-    options:
-      x: ["301", "401"]
+  playbooks:
+    converge: ../shared/playbook.yml
 verifier:
   name: testinfra
   lint:
     name: flake8
+  additional_files_or_dirs:
+    - ../shared/*
