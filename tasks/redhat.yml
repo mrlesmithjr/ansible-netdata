@@ -10,16 +10,16 @@
     state: present
   register: result
   when:
-    - not epel_repofile_result.stat.exists
     - netdata_epel_setup
+    - not epel_repofile_result.stat.exists
 
 - name: redhat | Import EPEL GPG key.
   rpm_key:
     key: "{{ netdata_epel_repo_gpg_key_url }}"
     state: present
   when:
-    - not epel_repofile_result.stat.exists
     - netdata_epel_setup
+    - not epel_repofile_result.stat.exists
 
 - name: redhat | install okay repo
   yum:
