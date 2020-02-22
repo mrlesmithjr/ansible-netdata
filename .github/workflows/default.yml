@@ -1,7 +1,6 @@
 ---
 name: Molecule Test
-on:
-  - push
+on: push
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,8 +21,16 @@ jobs:
         run: |
           sudo apt install docker
           python -m pip install --upgrade pip
-          pip3 install ansible molecule docker
+          pip3 install -r requirements.txt
           ansible --version
+          molecule --version
       - name: Test with molecule
         run: |
-          molecule test
+          molecule test --scenario-name centos7
+          # molecule test --scenario-name centos8
+          # molecule test --scenario-name debian8
+          molecule test --scenario-name debian9
+          molecule test --scenario-name debian10
+          molecule test --scenario-name fedora
+          molecule test --scenario-name ubuntu1604
+          molecule test --scenario-name ubuntu1804

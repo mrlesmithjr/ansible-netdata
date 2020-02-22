@@ -11,10 +11,18 @@ before_script:
     musl-dev libffi-dev openssl-dev openssh
   - docker info
   - python3 --version
+  - pip3 install -r requirements.txt
+  - ansible --version
+  - molecule --version
 
 molecule:
   stage: test
   script:
-    - pip3 install ansible molecule docker
-    - ansible --version
-    - molecule test
+    - molecule test --scenario-name centos7
+    # - molecule test --scenario-name centos8
+    # - molecule test --scenario-name debian8
+    - molecule test --scenario-name debian9
+    - molecule test --scenario-name debian10
+    - molecule test --scenario-name fedora
+    - molecule test --scenario-name ubuntu1604
+    - molecule test --scenario-name ubuntu1804

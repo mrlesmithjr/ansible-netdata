@@ -6,9 +6,17 @@ services:
 before_install:
   - sudo apt-get -qq update
 install:
-  - pip3 install ansible molecule docker
-script:
+  - pip3 install -r requirements.txt
   - ansible --version
-  - molecule test
+  - molecule --version
+script:
+  - molecule test --scenario-name centos7
+  # - molecule test --scenario-name centos8
+  # - molecule test --scenario-name debian8
+  - molecule test --scenario-name debian9
+  - molecule test --scenario-name debian10
+  - molecule test --scenario-name fedora
+  - molecule test --scenario-name ubuntu1604
+  - molecule test --scenario-name ubuntu1804
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
