@@ -7,12 +7,13 @@
     netdata_stream_enabled: true
     netdata_stream_api_key: 359CCA67-C678-49E7-9A39-DEC1B92DFB34
     netdata_stream_master_node: 192.168.250.10
-  roles:
-    - role: ansible-nodejs
-    - role: ansible-fail2ban
-    - role: ansible-nginx
-    - role: ansible-netdata
   tasks:
+    - name: Include ansible-nodejs
+      include_role:
+        name: ansible-nodejs
+    - name: Include ansible-netdata
+      include_role:
+        name: ansible-netdata
 
 - hosts: netdata:!netdata_registry
   vars:
@@ -22,8 +23,10 @@
     netdata_stream_enabled: true
     netdata_stream_api_key: 359CCA67-C678-49E7-9A39-DEC1B92DFB34
     netdata_stream_master_node: 192.168.250.10
-  roles:
-    - role: ansible-nodejs
-    - role: ansible-fail2ban
-    - role: ansible-nginx
-    - role: ansible-netdata
+  tasks:
+    - name: Include ansible-nodejs
+      include_role:
+        name: ansible-nodejs
+    - name: Include ansible-netdata
+      include_role:
+        name: ansible-netdata
