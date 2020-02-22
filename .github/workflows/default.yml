@@ -31,6 +31,6 @@ jobs:
           # molecule test --scenario-name debian8
           molecule test --scenario-name debian9
           molecule test --scenario-name debian10
-          molecule test --scenario-name fedora
+          # molecule test --scenario-name fedora
           molecule test --scenario-name ubuntu1604
           molecule test --scenario-name ubuntu1804
