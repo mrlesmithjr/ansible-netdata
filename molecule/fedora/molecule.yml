@@ -1,0 +1,28 @@
+---
+dependency:
+  name: galaxy
+  enabled: true
+  options:
+    role-file: requirements.yml
+driver:
+  name: docker
+lint: |
+  yamllint .
+  ansible-lint
+  flake8
+platforms:
+  - name: fedora
+    image: jrei/systemd-fedora
+    privileged: true
+    command: /usr/sbin/init
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+provisioner:
+  name: ansible
+  playbooks:
+    converge: ../shared/converge.yml
+verifier:
+  name: ansible

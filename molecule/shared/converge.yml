@@ -1,0 +1,10 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: Include ansible-nodejs
+      include_role:
+        name: ansible-nodejs
+    - name: Include ansible-netdata
+      include_role:
+        name: ansible-netdata

@@ -1,12 +1,11 @@
 *******
-Vagrant driver installation guide
+Docker driver installation guide
 *******
 
 Requirements
 ============
 
-* Vagrant
-* Virtualbox, Parallels, VMware Fusion, VMware Workstation or VMware Desktop
+* Docker Engine
 
 Install
 =======
@@ -20,4 +19,4 @@ widely recommended `'--user' flag`_ when invoking ``pip``.
 
 .. code-block:: bash
 
-    $ pip install 'molecule[vagrant]'
+    $ pip install 'molecule[docker]'
