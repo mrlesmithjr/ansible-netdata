@@ -119,7 +119,7 @@ netdata_web_mode: multi-threaded
 # The default port to listen for web clients.
 netdata_default_port: 19999
 
-# Defines pre-requisites for RedHat systems
+# Defines pre-requisites for RedHat (6, 7) systems
 netdata_redhat_pre_reqs:
   - autoconf
   - automake
@@ -142,6 +142,20 @@ netdata_redhat_pre_reqs:
   - util-linux
   - uuid
   - uuid-devel
+  - zlib-devel
+# Defines pre-requisites for RedHat (8) systems
+netdata_redhat8_pre_reqs:
+  - autoconf
+  - automake
+  - cronie
+  - curl
+  - findutils
+  - gcc
+  - git
+  - libmnl
+  - libuuid-devel
+  - make
+  - pkgconfig
   - zlib-devel
 
 netdata_epel_setup: false
