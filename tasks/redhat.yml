@@ -32,4 +32,15 @@
     name: "{{ netdata_redhat_pre_reqs }}"
     state: present
   become: true
-  when: ansible_distribution != "Fedora"
+  when:
+    - ansible_distribution != "Fedora"
+    - ansible_distribution_major_version < "8"
+    -
+- name: redhat | Installing Pre-Reqs
+  yum:
+    name: "{{ netdata_redhat8_pre_reqs }}"
+    state: present
+  become: true
+  when:
+    - ansible_distribution != "Fedora"
+    - ansible_distribution_major_version == "8"

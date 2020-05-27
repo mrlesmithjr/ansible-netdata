@@ -11,7 +11,7 @@ install:
   - molecule --version
 script:
   - molecule test --scenario-name centos7
-  # - molecule test --scenario-name centos8
+  - molecule test --scenario-name centos8
   # - molecule test --scenario-name debian8
   - molecule test --scenario-name debian9
   - molecule test --scenario-name debian10
