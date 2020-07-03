@@ -110,15 +110,20 @@
 	# buffer on failures = 10
 	# timeout ms = 20000
 {% else %}
-	enabled = {{ netdata_archive_enabled }}
-	type = {{ netdata_archive_type }}
-	destination = {{ netdata_archive_destination|join(' ') }}
-	data source = {{ netdata_archive_data_source }}
-	prefix = {{ netdata_archive_prefix }}
-	update every = {{ netdata_archive_update }}
-	buffer on failures = {{ netdata_archive_buffer_on_failures }}
-	timeout ms = {{ netdata_archive_timeout }}
-	send names instead of ids = {{ netdata_archive_send_names }}
+        enabled = {{ netdata_archive_enabled }}
+        type = {{ netdata_archive_type }}
+        destination = {{ netdata_archive_destination|join(' ') }}
+        data source = {{ netdata_archive_data_source }}
+        # prefix = {{ netdata_archive_prefix }}
+        # hostname = {{ netdata_hostname }}
+        update every = {{ netdata_archive_update }}
+        #buffer on failures = {{ netdata_archive_buffer_on_failures }}
+        timeout ms = {{ netdata_archive_timeout }}
+        send names instead of ids = {{ netdata_archive_send_names }}
+        send charts matching = {{ netdata_archive_charts }}
+        #send charts matching = !*packets* !*drops* *tap1.986* *tap2.986* *DSCP* *.default* !*
+        # send hosts matching = localhost *
+
 {% endif %}
 
 # per plugin configuration
