@@ -1,10 +1,4 @@
 ---
-- name: debian | Installing Pre-Reqs
-  apt:
-    name: "{{ netdata_debian_pre_reqs }}"
-    state: present
-  become: true
-
 - name: debian | Installing iproute Package
   apt:
     name: iproute
