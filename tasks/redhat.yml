@@ -1,4 +1,9 @@
 ---
+- name: redhat | Install git
+  yum:
+    name: git
+    state: present
+
 - name: redhat | Check if EPEL repo is already configured.
   stat: path={{ netdata_epel_repofile_path }}
   register: epel_repofile_result
