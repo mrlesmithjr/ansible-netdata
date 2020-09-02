@@ -1,0 +1,9 @@
+- name: Prepare
+  hosts: all
+  tasks:
+    - name: Install requisites
+      apt:
+        name: cron
+        state: present
+        update_cache: yes
+      become: true
