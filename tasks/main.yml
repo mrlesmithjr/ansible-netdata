@@ -1,6 +1,8 @@
 ---
 # tasks file for ansible-netdata
 
+- include_tasks: set_facts.yml
+
 - include: debian.yml
   when: ansible_os_family == "Debian"
 

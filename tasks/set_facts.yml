@@ -1,0 +1,67 @@
+---
+- name: set_facts | Defining Debian Packages
+  set_fact:
+    netdata_debian_pre_reqs:
+      - autoconf-archive
+      - autoconf
+      - autogen
+      - automake
+      - build-essential
+      - cron
+      - curl
+      - gcc
+      - git
+      - libmnl-dev
+      - libmnl0
+      - libssl-dev
+      - libuuid1
+      - libuv1-dev
+      - lm-sensors
+      - make
+      - netcat
+      - pkg-config
+      - python-mysqldb
+      - python-psycopg2
+      - python-pymongo
+      - python-yaml
+      - util-linux
+      - uuid
+      - uuid-dev
+      - zlib1g-dev
+  when: >
+    ansible_distribution == "Debian" or
+    (ansible_distribution == "Ubuntu" and
+    ansible_distribution_version is version('20.04', '<'))
+
+- name: set_facts | Defining Debian Packages
+  set_fact:
+    netdata_debian_pre_reqs:
+      - autoconf-archive
+      - autoconf
+      - autogen
+      - automake
+      - build-essential
+      - cron
+      - curl
+      - gcc
+      - git
+      - libmnl-dev
+      - libmnl0
+      - libssl-dev
+      - libuuid1
+      - libuv1-dev
+      - lm-sensors
+      - make
+      - netcat
+      - pkg-config
+      - python3-pymysql
+      - python3-psycopg2
+      - python3-pymongo
+      - python3-yaml
+      - util-linux
+      - uuid
+      - uuid-dev
+      - zlib1g-dev
+  when:
+    - ansible_distribution == "Ubuntu"
+    - ansible_distribution_version is version('20.04', '>=')

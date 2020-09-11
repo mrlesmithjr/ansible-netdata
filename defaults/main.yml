@@ -27,35 +27,6 @@ netdata_config: true
 # Defines location of Netdata configuration file
 netdata_config_file: /etc/netdata/netdata.conf
 
-# Defines pre-requisites for Debian systems
-netdata_debian_pre_reqs:
-  - autoconf-archive
-  - autoconf
-  - autogen
-  - automake
-  - build-essential
-  - cron
-  - curl
-  - gcc
-  - git
-  - libmnl-dev
-  - libmnl0
-  - libssl-dev
-  - libuuid1
-  - libuv1-dev
-  - lm-sensors
-  - make
-  - netcat
-  - pkg-config
-  - python-mysqldb
-  - python-psycopg2
-  - python-pymongo
-  - python-yaml
-  - util-linux
-  - uuid
-  - uuid-dev
-  - zlib1g-dev
-
 # Defines the Git repo to pull down for installs
 netdata_git_repo: https://github.com/netdata/netdata.git
 

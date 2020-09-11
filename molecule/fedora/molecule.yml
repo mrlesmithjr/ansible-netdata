@@ -15,14 +15,15 @@ platforms:
     image: jrei/systemd-fedora
     privileged: true
     command: /usr/sbin/init
-    tmpfs:
-      - /run
-      - /tmp
+    # tmpfs:
+    #   - /run
+    #   - /tmp
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
   name: ansible
   playbooks:
     converge: ../shared/converge.yml
+    prepare: ../shared/prepare.yml
 verifier:
   name: ansible
