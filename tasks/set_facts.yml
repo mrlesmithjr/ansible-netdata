@@ -28,10 +28,10 @@
       - uuid
       - uuid-dev
       - zlib1g-dev
-    when:
-      - ansible_os_family == "Debian"
-      - ansible_distribution != "Ubuntu"
-      - ansible_distribution_version is version('20.04', '<')
+  when:
+    - ansible_os_family == "Debian"
+    - ansible_distribution != "Ubuntu"
+    - ansible_distribution_version is version('20.04', '<')
 
 - name: set_facts | Defining Debian Packages
   set_fact:
@@ -62,6 +62,6 @@
       - uuid
       - uuid-dev
       - zlib1g-dev
-    when:
-      - ansible_distribution == "Ubuntu"
-      - ansible_distribution_version is version('20.04', '>=')
+  when:
+    - ansible_distribution == "Ubuntu"
+    - ansible_distribution_version is version('20.04', '>=')
