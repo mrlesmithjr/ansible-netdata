@@ -4,6 +4,9 @@ image: docker:git
 services:
   - docker:dind
 
+stages:
+  - molecule-test
+
 before_script:
   - apk update && apk add --no-cache docker
     python3-dev py3-pip docker gcc git curl build-base
@@ -11,18 +14,52 @@ before_script:
     musl-dev libffi-dev openssl-dev openssh
   - docker info
   - python3 --version
-  - pip3 install -r requirements.txt
+  - pip3 install --upgrade pip pip-tools
+  - pip-sync requirements.txt requirements-dev.txt
   - ansible --version
   - molecule --version
 
-molecule:
-  stage: test
+centos7:
+  stage: molecule-test
   script:
     - molecule test --scenario-name centos7
-    # - molecule test --scenario-name centos8
-    # - molecule test --scenario-name debian8
+
+centos8:
+  stage: molecule-test
+  script:
+    - molecule test --scenario-name centos8
+
+debian8:
+  stage: molecule-test
+  script:
+    - molecule test --scenario-name debian8
+
+debian9:
+  stage: molecule-test
+  script:
     - molecule test --scenario-name debian9
+
+debian10:
+  stage: molecule-test
+  script:
     - molecule test --scenario-name debian10
-    # - molecule test --scenario-name fedora
+
+fedora:
+  stage: molecule-test
+  script:
+    - molecule test --scenario-name fedora
+
+ubuntu1604:
+  stage: molecule-test
+  script:
     - molecule test --scenario-name ubuntu1604
+
+ubuntu1804:
+  stage: molecule-test
+  script:
     - molecule test --scenario-name ubuntu1804
+
+ubuntu2004:
+  stage: molecule-test
+  script:
+    - molecule test --scenario-name ubuntu2004
