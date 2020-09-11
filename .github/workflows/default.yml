@@ -14,7 +14,7 @@ jobs:
           - debian8
           - debian9
           - debian10
-          - fedora
+          # - fedora
           - ubuntu1604
           - ubuntu1804
           - ubuntu2004

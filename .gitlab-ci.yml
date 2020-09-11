@@ -44,10 +44,10 @@ debian10:
   script:
     - molecule test --scenario-name debian10
 
-fedora:
-  stage: molecule-test
-  script:
-    - molecule test --scenario-name fedora
+# fedora:
+#   stage: molecule-test
+#   script:
+#     - molecule test --scenario-name fedora
 
 ubuntu1604:
   stage: molecule-test

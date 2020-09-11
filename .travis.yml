@@ -11,7 +11,7 @@ env:
   - molecule_distro=debian8
   - molecule_distro=debian9
   - molecule_distro=debian10
-  - molecule_distro=fedora
+  # - molecule_distro=fedora
   - molecule_distro=ubuntu1604
   - molecule_distro=ubuntu1804
   - molecule_distro=ubuntu2004
