@@ -1,7 +1,7 @@
 ---
 - hosts: all
   tasks:
-    - name: Update Apt Cache
+    - name: Update Apt Cache and install cron
       apt:
         name: cron
         update_cache: true
