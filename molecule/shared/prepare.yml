@@ -3,12 +3,14 @@
   tasks:
     - name: Update Apt Cache
       apt:
+        name: cron
         update_cache: true
       become: true
       when: ansible_os_family == "Debian"
 
     - name: Install cron as requisite
       package:
-        name: cron
+        name: cronie
         state: present
       become: true
+      when: ansible_os_family == "RedHat"
