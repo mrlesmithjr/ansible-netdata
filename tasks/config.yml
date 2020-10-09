@@ -15,6 +15,7 @@
     owner: "{{ netdata_user_info['user'] }}"
     group: root
     src: "health_alarm_notify.conf.j2"
+    mode: u=rw,g=rw,o=r
   notify: restart netdata
   become: true
   when: netdata_alarm_configure
