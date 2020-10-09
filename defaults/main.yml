@@ -80,6 +80,10 @@ netdata_installer: ./netdata-installer.sh
 # will be lost when netdata exits.
 netdata_memory_mode: save
 
+# This variables are only used if netdata_memory_mode is set to dbengine
+netdata_dbengine_page_cache_size: 32
+netdata_dbengine_multihost_disk_space: 256
+
 # Defines the mode the web-server will run in
 # static-threaded is a web server with a fix (configured number of threads)
 # single-threaded is a simple web server running with a single thread
