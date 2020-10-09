@@ -18,9 +18,8 @@
   become: true
   register: netdata_requirements_install
   changed_when: >
-    "not
-    netdata_requirements_install.stderr|
-    search('All required packages are already installed. Now proceed to the next step.')"
+    'All required packages are already installed. Now proceed to the next step.'
+    not in netdata_requirements_install.stderr_lines
 
 - name: install | Installing Netdata ({{ netdata_installer }}) From {{ netdata_source_dir }}
   command: "{{ installer_cli|join(' ') }}"
