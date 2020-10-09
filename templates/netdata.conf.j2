@@ -13,8 +13,12 @@
 	web files directory = /usr/share/netdata/web
 	cache directory = /var/cache/netdata
 	lib directory = /var/lib/netdata
-	home directory = /var/cache/netdata
-	memory mode = {{ netdata_memory_mode }}
+    home directory = /var/cache/netdata
+    memory mode = {{ netdata_memory_mode }}
+    {% if netdata_memory_mode == "dbengine" %}
+    page cache size = {{ netdata_dbengine_page_cache_size }}
+    dbengine multihost disk space = {{ netdata_dbengine_multihost_disk_space }}
+	{% endif %}
 	# host access prefix =
 	# memory deduplication (ksm) = yes
 	# TZ environment variable = :/etc/localtime
