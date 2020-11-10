@@ -11,6 +11,16 @@
     version: "{{ netdata_git_version_tag }}"
   become: true
 
+- name: use Netdata dependencies installation
+  command: "{{ netdata_requirements_installer }} {{ netdata_requirements_installer_options|join(' ') }}" # noqa 301
+  args:
+    chdir: "{{ netdata_source_dir }}"
+  become: true
+  register: netdata_requirements_install
+  changed_when: >
+    'All required packages are already installed. Now proceed to the next step.'
+    not in netdata_requirements_install.stderr_lines
+
 - name: install | Installing Netdata ({{ netdata_installer }}) From {{ netdata_source_dir }}
   command: "{{ installer_cli|join(' ') }}"
   vars:
