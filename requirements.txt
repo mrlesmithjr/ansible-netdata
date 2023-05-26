@@ -27,9 +27,9 @@ cffi==1.14.2
     #   cryptography
     #   pynacl
 chardet==3.0.4
-    # via
-    #   binaryornot
-    #   requests
+    # via binaryornot
+charset-normalizer==3.1.0
+    # via requests
 click==7.1.2
     # via
     #   click-completion
@@ -133,7 +133,7 @@ pyyaml==5.3.1
     #   yamllint
 regex==2020.7.14
     # via nltk
-requests==2.24.0
+requests==2.31.0
     # via
     #   cookiecutter
     #   docker
