@@ -53,7 +53,7 @@ commonmark==0.9.1
     # via rich
 cookiecutter==1.7.2
     # via molecule
-cryptography==3.1
+cryptography==41.0.0
     # via
     #   ansible
     #   paramiko
@@ -154,7 +154,6 @@ six==1.15.0
     #   bcrypt
     #   click-completion
     #   cookiecutter
-    #   cryptography
     #   docker
     #   fasteners
     #   livereload
