@@ -11,8 +11,8 @@ lint: |
   ansible-lint
   flake8
 platforms:
-  - name: centos7
-    image: mrlesmithjr/centos:7
+  - name: fedora34
+    image: mrlesmithjr/fedora:34
     privileged: true
     command: /usr/sbin/init
     # tmpfs:

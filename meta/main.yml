@@ -3,28 +3,21 @@ galaxy_info:
   author: Larry Smith Jr.
   description: Ansible role to install/configure Netdata
   license: MIT
+  namespace: mrlesmithjr
+  role_name: netdata
 
-  min_ansible_version: 2.0
+  min_ansible_version: "2.0"
 
   platforms:
     - name: EL
       versions:
-        - 6
-        - 7
-        - 8
+        - all
     - name: Debian
       versions:
-        - buster
-        - jessie
-        - stretch
+        - all
     - name: Ubuntu
       versions:
-        - bionic
-        - dingo
-        - focal
-        - precise
-        - trusty
-        - xenial
+        - all
 
   galaxy_tags:
     - system

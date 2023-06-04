@@ -4,13 +4,13 @@
 [{{ netdata_stream_receive_api_key }}]
     # enable/disable this API key
     enabled = yes
-    
+
     # one hour of data for each of the slaves
     default history = 3600
-    
+
     # do not save slave metrics on disk
     default memory = ram
-    
+
     # alarms checks, only while the slave is connected
     health enabled by default = auto
 
@@ -19,7 +19,7 @@
 [stream]
     # stream metrics to another netdata
     enabled = yes
-      
+
     # the IP and PORT of the master
     destination = {{ netdata_stream_master_node }}
 

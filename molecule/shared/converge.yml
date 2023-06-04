@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     - name: Include ansible-netdata
-      include_role:
+      ansible.builtin.include_role:
         name: ansible-netdata
   vars:
     netdata_epel_setup: "{{ ansible_hostname == 'centos7' }}"

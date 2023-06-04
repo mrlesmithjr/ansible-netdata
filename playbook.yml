@@ -1,5 +1,6 @@
 ---
-- hosts: netdata_registry
+- name: Provision Netdata registry
+  hosts: netdata_registry
   vars:
     netdata_registry_enabled: true
     netdata_registry_to_announce: "http://{{ netdata_stream_master_node }}:{{ netdata_default_port }}"
@@ -9,13 +10,14 @@
     netdata_stream_master_node: 192.168.250.10
   tasks:
     - name: Include ansible-nodejs
-      include_role:
+      ansible.builtin.include_role:
         name: ansible-nodejs
     - name: Include ansible-netdata
-      include_role:
+      ansible.builtin.include_role:
         name: ansible-netdata
 
-- hosts: netdata:!netdata_registry
+- name: Provision Netdata
+  hosts: netdata:!netdata_registry
   vars:
     netdata_registry_enabled: false
     netdata_registry_to_announce: "http://{{ netdata_stream_master_node }}:{{ netdata_default_port }}"
@@ -25,8 +27,8 @@
     netdata_stream_master_node: 192.168.250.10
   tasks:
     - name: Include ansible-nodejs
-      include_role:
+      ansible.builtin.include_role:
         name: ansible-nodejs
     - name: Include ansible-netdata
-      include_role:
+      ansible.builtin.include_role:
         name: ansible-netdata

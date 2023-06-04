@@ -11,10 +11,10 @@ lint: |
   ansible-lint
   flake8
 platforms:
-  - name: centos7
-    image: mrlesmithjr/centos:7
+  - name: ubuntu2204
+    image: mrlesmithjr/ubuntu:22.04
     privileged: true
-    command: /usr/sbin/init
+    command: /lib/systemd/systemd
     # tmpfs:
     #   - /run
     #   - /tmp

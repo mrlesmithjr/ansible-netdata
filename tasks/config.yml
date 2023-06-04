@@ -1,6 +1,6 @@
 ---
 - name: config | Configuring Netdata
-  template:
+  ansible.builtin.template:
     src: netdata.conf.j2
     dest: "{{ netdata_config_file }}"
     owner: "{{ netdata_user_info['user'] }}"
@@ -10,7 +10,7 @@
   become: true
 
 - name: config | Configuring Netdata Alarm Notifications
-  template:
+  ansible.builtin.template:
     dest: "{{ netdata_alarm_config_file }}"
     owner: "{{ netdata_user_info['user'] }}"
     group: root
@@ -21,7 +21,7 @@
   when: netdata_alarm_configure
 
 - name: config | Configuring Netdata streaming
-  template:
+  ansible.builtin.template:
     src: stream.conf.j2
     dest: "{{ netdata_stream_config_file }}"
     owner: "{{ netdata_user_info['user'] }}"
@@ -32,7 +32,7 @@
   when: netdata_stream_enabled
 
 - name: config | Configuring Netdata Service (systemd)
-  template:
+  ansible.builtin.template:
     src: etc/systemd/system/netdata.service.j2
     dest: /etc/systemd/system/netdata.service
     owner: root
@@ -45,7 +45,7 @@
   when: ansible_service_mgr == "systemd"
 
 - name: config | Configuring Netdata Service (upstart|sysvinit) - Debian
-  template:
+  ansible.builtin.template:
     src: etc/init.d/netdata.debian.j2
     dest: /etc/init.d/netdata
     owner: root
@@ -60,7 +60,7 @@
     ansible_os_family == "Debian"
 
 - name: config | Configuring Netdata Service (upstart|sysvinit) - RedHat
-  template:
+  ansible.builtin.template:
     src: etc/init.d/netdata.redhat.j2
     dest: /etc/init.d/netdata
     owner: root

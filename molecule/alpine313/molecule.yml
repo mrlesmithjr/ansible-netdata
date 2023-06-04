@@ -11,10 +11,10 @@ lint: |
   ansible-lint
   flake8
 platforms:
-  - name: centos7
-    image: mrlesmithjr/centos:7
+  - name: alpine313
+    image: mrlesmithjr/alpine:3.13
     privileged: true
-    command: /usr/sbin/init
+    command: /sbin/init
     # tmpfs:
     #   - /run
     #   - /tmp
