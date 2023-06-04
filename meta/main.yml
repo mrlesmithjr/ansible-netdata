@@ -11,22 +11,13 @@ galaxy_info:
   platforms:
     - name: EL
       versions:
-        - 6
-        - 7
-        - 8
+        - all
     - name: Debian
       versions:
-        - buster
-        - jessie
-        - stretch
+        - all
     - name: Ubuntu
       versions:
-        - bionic
-        - dingo
-        - focal
-        - precise
-        - trusty
-        - xenial
+        - all
 
   galaxy_tags:
     - system

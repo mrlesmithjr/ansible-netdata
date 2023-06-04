@@ -2,13 +2,13 @@
 # Since netdata 1.11 the auto-updater installs the cron by itself
 # This is a legacy when Netdata didn't handle the cron itself
 - name: auto_updates | Setting Up Cron Job For Auto Updates
-  cron:
+  ansible.builtin.cron:
     name: Netdata Auto Updates
     weekday: "{{ netdata_auto_updates['weekday'] }}"
     minute: "{{ netdata_auto_updates['minute'] }}"
     hour: "{{ netdata_auto_updates['hour'] }}"
     user: "{{ netdata_auto_updates['user'] }}"
-    job: "{{ netdata_source_dir }}/{{ netdata_updater|basename }}"
+    job: "{{ netdata_source_dir }}/{{ netdata_updater | basename }}"
     cron_file: netdata_auto_updates
-    state: "{{ netdata_auto_updates['clean_legacy_cron']|default(false)|ternary('absent', 'present') }}"
+    state: "{{ netdata_auto_updates['clean_legacy_cron'] | default(false) | ternary('absent', 'present') }}"
   become: true
