@@ -1,6 +1,15 @@
 ---
 name: Molecule Test
-on: push
+on:
+  push:
+    branches-ignore:
+      - main
+      - master
+  pull_request:
+    branches:
+      - develop
+      - main
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -9,28 +18,45 @@ jobs:
       max-parallel: 4
       matrix:
         molecule_distro:
+          # - alpine313
+          # - alpine314
           - centos7
           - centos8
-          # - debian8
+          - debian8
           - debian9
           - debian10
-          # - fedora
+          - debian11
+          # - fedora34
+          # - fedora35
+          - rocky8
           - ubuntu1604
           - ubuntu1804
           - ubuntu2004
+          - ubuntu2204
+        python-version: [3.9]
 
     steps:
-      - uses: actions/checkout@v1
-      - name: Set up Python 3
-        uses: actions/setup-python@v1
+      - uses: actions/checkout@v3
         with:
-          python-version: "3.x"
+          submodules: recursive
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip pip-tools
-          pip-sync requirements.txt requirements-dev.txt
-          ansible --version
-          molecule --version
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -r requirements-dev.txt
+          pip install pre-commit
+      - name: Run pre-commit checks
+        run: |
+          SKIP=no-commit-to-branch pre-commit run --all-files
       - name: Test with molecule
         run: |
           molecule test --scenario-name ${{ matrix.molecule_distro }}
