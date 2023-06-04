@@ -1,7 +1,7 @@
 ---
 dependency:
   name: galaxy
-  enabled: true
+  enabled: false
   options:
     role-file: requirements.yml
 driver:
@@ -12,14 +12,16 @@ lint: |
   flake8
 platforms:
   - name: centos8
-    image: jrei/systemd-centos:8
+    image: mrlesmithjr/centos:8
     privileged: true
     command: /usr/sbin/init
     # tmpfs:
     #   - /run
     #   - /tmp
     volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    cgroupns_mode: host
+    # groups: []
 provisioner:
   name: ansible
   playbooks:
