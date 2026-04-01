@@ -5,6 +5,15 @@
     state: present
   become: true
 
+- name: debian | Installing netcat-openbsd (Ubuntu 24.04+)
+  ansible.builtin.apt:
+    name: netcat-openbsd
+    state: present
+  become: true
+  when:
+    - ansible_distribution == "Ubuntu"
+    - ansible_distribution_version is version('24.04', '>=')
+
 - name: debian | Installing iproute Package
   ansible.builtin.apt:
     name: iproute
