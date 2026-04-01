@@ -1,8 +1,5 @@
 # Python requirements for executing
-ansible
-ansible-lint
-docker
-mkdocs
-molecule
-pip-tools
+ansible>=10.0,<12.0
+molecule>=24.0
+molecule-plugins[docker]
 yamllint

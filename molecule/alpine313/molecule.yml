@@ -6,10 +6,6 @@ dependency:
     role-file: requirements.yml
 driver:
   name: docker
-lint: |
-  yamllint .
-  ansible-lint
-  flake8
 platforms:
   - name: alpine313
     image: mrlesmithjr/alpine:3.13
@@ -24,6 +20,8 @@ platforms:
     # groups: []
 provisioner:
   name: ansible
+  env:
+    ANSIBLE_ROLES_PATH: "${MOLECULE_PROJECT_DIRECTORY}/.."
   playbooks:
     converge: ../shared/converge.yml
     prepare: ../shared/prepare.yml

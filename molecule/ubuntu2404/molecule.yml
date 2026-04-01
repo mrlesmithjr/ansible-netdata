@@ -7,10 +7,10 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: centos7
-    image: mrlesmithjr/centos:7
+  - name: ubuntu2404
+    image: mrlesmithjr/ubuntu:24.04
     privileged: true
-    command: /usr/sbin/init
+    command: /lib/systemd/systemd
     # tmpfs:
     #   - /run
     #   - /tmp

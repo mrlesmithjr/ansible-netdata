@@ -1,6 +1,6 @@
 ---
 - name: redhat | Install git
-  ansible.builtin.yum:
+  ansible.builtin.dnf:
     name: git
     state: present
 
@@ -11,7 +11,7 @@
   when: netdata_epel_setup
 
 - name: redhat | Install EPEL repo.
-  ansible.builtin.yum:
+  ansible.builtin.dnf:
     name: "{{ netdata_epel_repo_url }}"
     state: present
   register: result
@@ -28,7 +28,7 @@
     - not epel_repofile_result.stat.exists
 
 - name: redhat | install okay repo
-  ansible.builtin.yum:
+  ansible.builtin.dnf:
     name: http://repo.okay.com.mx/centos/6/x86_64/release/okay-release-1-3.el6.noarch.rpm
     state: present
   when: netdata_centos6_install_okay
