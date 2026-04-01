@@ -19,10 +19,11 @@ jobs:
       matrix:
         molecule_distro:
           - ubuntu2204
-        python-version: ["3.11"]
+          - ubuntu2404
+        python-version: ["3.13"]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           submodules: recursive
       - name: Set up Python ${{ matrix.python-version }}

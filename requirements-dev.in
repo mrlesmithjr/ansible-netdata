@@ -1,7 +1,5 @@
 # Python requirements for development
 -c requirements.txt
-autopep8
+ansible-lint>=24.0
 flake8
-pycodestyle
 pylint
-tox

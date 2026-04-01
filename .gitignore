@@ -27,3 +27,4 @@ venv/
 .vscode/
 
 .DS_Store
+.ansible/
