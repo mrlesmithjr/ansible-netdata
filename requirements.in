@@ -1,5 +1,5 @@
 # Python requirements for executing
-ansible>=10.0,<12.0
+ansible>=10.0,<13.0
 molecule>=24.0
 molecule-plugins[docker]
 yamllint

@@ -4,11 +4,11 @@
 #
 #    pip-compile --output-file=requirements.txt requirements.in
 #
-ansible==11.13.0
+ansible==12.2.0
     # via -r requirements.in
 ansible-compat==26.3.0
     # via molecule
-ansible-core==2.18.15
+ansible-core==2.19.8
     # via
     #   ansible
     #   ansible-compat
@@ -29,6 +29,8 @@ click==8.3.1
     # via molecule
 cryptography==46.0.6
     # via ansible-core
+distro==1.9.0
+    # via selinux
 docker==7.1.0
     # via molecule-plugins
 enrich==1.2.7
@@ -94,6 +96,8 @@ rpds-py==0.30.0
     # via
     #   jsonschema
     #   referencing
+selinux==0.3.0
+    # via molecule-plugins
 subprocess-tee==0.4.2
     # via ansible-compat
 typing-extensions==4.15.0
