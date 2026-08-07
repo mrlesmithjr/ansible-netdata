@@ -29,11 +29,13 @@ click==8.3.1
     # via molecule
 cryptography==46.0.6
     # via ansible-core
+distro==1.9.0
+    # via selinux
 docker==7.1.0
     # via molecule-plugins
 enrich==1.2.7
     # via molecule
-idna==3.11
+idna==3.15
     # via requests
 jinja2==3.1.6
     # via
@@ -94,6 +96,8 @@ rpds-py==0.30.0
     # via
     #   jsonschema
     #   referencing
+selinux==0.3.0
+    # via molecule-plugins
 subprocess-tee==0.4.2
     # via ansible-compat
 typing-extensions==4.15.0
